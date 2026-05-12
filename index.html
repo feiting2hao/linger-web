@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linger</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@400;600&family=Spectral:wght@600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- 首页主内容（全程可见） -->
+    <main class="page entry-page">
+      <section class="entry-card visible" id="entryCard">
+        <div class="mark" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none">
+            <path d="M60 12 96 33.5v45c0 6-3.2 11.5-8.4 14.5l-19.2 11.1a16.8 16.8 0 0 1-16.8 0L32.4 93A16.8 16.8 0 0 1 24 78.5v-45L60 12Z" fill="#16213E" />
+            <path d="M42 39 60 28.5 78 39 60 49.5 42 39Z" stroke="#fff" stroke-width="5" stroke-linejoin="round" />
+            <circle cx="60" cy="58" r="8" fill="#fff" />
+            <path d="M45 84c0-9 6.4-15 15-15s15 6 15 15v4H45v-4Z" fill="#fff" />
+          </svg>
+        </div>
+        <h1 class="entry-word">Linger</h1>
+        <div class="entry-copy">
+          <h2>与沈鹿溪，开启专属陪伴</h2>
+          <p>这里不是复杂的控制台，而是一段专属陪伴的开始。她会按自己的节奏存在，也会在合适的时候，回到你面前。</p>
+        </div>
+
+        <!-- 动态区域：加载中显示进度条，加载完成显示按钮 -->
+        <div class="entry-actions-wrapper">
+
+          <!-- 加载组件（加载期间显示） -->
+          <div class="loading-component" id="loadingComponent">
+            <div class="loading-text-container">
+              <span class="loading-text" id="loadText0">正在同步世界时间</span>
+              <span class="loading-text" id="loadText1">正在整理记忆</span>
+              <span class="loading-text" id="loadText2">正在确认边界</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+
+          <!-- 按钮区域（加载完成后显示） -->
+          <div class="entry-actions" id="entryActions">
+            <a class="button primary" href="chat.html">
+              <span>进入 Linger</span>
+              <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </a>
+            <div class="secondary-links">
+              <a class="text-link" href="whitebox.html">查看白盒</a>
+              <a class="text-link" href="settings.html">调整设置</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (function() {
+        'use strict';
+
+        var LOADING_DURATION = 5000;
+        var FADE_DURATION = 600;
+
+        // Text timing: [startMs, endMs, index]
+        var TEXT_TIMING = [
+          [0,    1500, 0],
+          [1500, 3500, 1],
+          [3500, 5000, 2]
+        ];
+
+        var progressFill = document.getElementById('progressFill');
+        var loadingComponent = document.getElementById('loadingComponent');
+        var entryActions = document.getElementById('entryActions');
+        var texts = [
+          document.getElementById('loadText0'),
+          document.getElementById('loadText1'),
+          document.getElementById('loadText2')
+        ];
+
+        var startTime = null;
+        var currentTextIndex = -1;
+
+        // Activate first text immediately
+        texts[0].classList.add('active');
+        currentTextIndex = 0;
+
+        function updateProgress(elapsed) {
+          var pct = Math.min(elapsed / LOADING_DURATION, 1) * 100;
+          progressFill.style.width = pct + '%';
+        }
+
+        function updateText(elapsed) {
+          for (var i = 0; i < TEXT_TIMING.length; i++) {
+            var t = TEXT_TIMING[i];
+            if (elapsed >= t[0] && elapsed < t[1] && currentTextIndex !== t[2]) {
+              // Mark current as exiting: slides upward + fades out
+              if (currentTextIndex >= 0) {
+                texts[currentTextIndex].classList.remove('active');
+                texts[currentTextIndex].classList.add('exiting');
+              }
+              // Activate next: slides in from below
+              texts[t[2]].classList.remove('exiting');
+              texts[t[2]].classList.add('active');
+              currentTextIndex = t[2];
+              break;
+            }
+          }
+        }
+
+        function animate() {
+          if (!startTime) startTime = Date.now();
+          var elapsed = Date.now() - startTime;
+
+          updateProgress(elapsed);
+          updateText(elapsed);
+
+          if (elapsed < LOADING_DURATION) {
+            setTimeout(animate, 16);
+          } else {
+            // Ensure progress bar shows 100%
+            progressFill.style.width = '100%';
+            finishLoading();
+          }
+        }
+
+        function finishLoading() {
+          // Fade out loading component
+          loadingComponent.classList.add('fade-out');
+
+          // Fade in buttons simultaneously
+          setTimeout(function() {
+            entryActions.classList.add('visible');
+          }, 50);
+
+          // Hide loading component from layout after transition
+          setTimeout(function() {
+            loadingComponent.style.display = 'none';
+          }, FADE_DURATION);
+        }
+
+        // Start
+        setTimeout(animate, 16);
+      })();
+    </script>
+  </body>
+</html>
