@@ -28,7 +28,8 @@
 }
 
 html, body {
-  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -466,6 +467,7 @@ a {
 
 .chat-page {
   height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg-cool) 100%);
@@ -589,11 +591,10 @@ a {
 /* 主内容区 */
 .chat-main {
   flex: 1;
-  display: grid;
-  grid-template-columns: 320px 1fr;
+  display: flex;
   min-height: 0;
   margin-top: 64px;
-  height: calc(100vh - 64px);
+  overflow: hidden;
 }
 
 /* 左侧侧边栏 - 固定定位 */
@@ -870,13 +871,16 @@ a {
 .chat-area {
   display: flex;
   flex-direction: column;
+  flex: 1;
   margin-left: 320px;
-  height: calc(100vh - 64px);
+  min-height: 0;
+  overflow: hidden;
   background: rgba(255, 255, 255, 0.5);
 }
 
 .chat-messages {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 32px;
@@ -903,14 +907,19 @@ a {
   background: #94A3B8;
 }
 
-/* 欢迎区 */
+/* ============================================
+   欢迎态动画
+   ============================================ */
+
 .welcome-section {
   text-align: center;
-  padding: 80px 0;
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding: 0 48px;
+  gap: 0;
   transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
@@ -921,23 +930,29 @@ a {
 }
 
 .welcome-title {
-  margin: 0 0 20px;
+  margin: 0 0 28px;
   font-family: var(--font-sans);
-  font-size: 32px;
+  font-size: clamp(36px, 5vw, 56px);
   font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   color: var(--brand-primary);
 }
 
 .welcome-subtitle {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 18px;
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 300;
-  color: var(--text-tertiary);
+  color: var(--text-muted);
   line-height: 1.8;
+  letter-spacing: 0.01em;
 }
 
-/* 消息动画 */
+/* ============================================
+   消息动画
+   ============================================ */
+
 .message {
   max-width: 560px;
   opacity: 0;
@@ -1502,26 +1517,19 @@ a {
 @media (max-width: 1199px) {
   .sidebar {
     width: 280px;
+    padding: 20px 16px;
   }
   
   .chat-area {
     margin-left: 280px;
   }
   
-  .sidebar {
-    padding: 20px 16px;
-  }
-  
   .welcome-title {
-    font-size: 28px;
+    font-size: clamp(28px, 4vw, 40px);
   }
   
   .welcome-subtitle {
-    font-size: 16px;
-  }
-  
-  .welcome-section {
-    padding: 60px 0;
+    font-size: clamp(15px, 1.8vw, 18px);
   }
 
   /* 设置页响应式 */
@@ -1577,12 +1585,12 @@ a {
   }
   
   .welcome-section {
-    padding: 40px 0;
+    padding: 0 24px;
   }
   
   .welcome-title {
-    font-size: 24px;
-    margin-bottom: 16px;
+    font-size: clamp(28px, 7vw, 36px);
+    margin-bottom: 20px;
   }
   
   .welcome-subtitle {
