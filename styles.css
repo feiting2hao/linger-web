@@ -1295,13 +1295,10 @@ a {
   flex: 1;
   margin-left: 280px;
   height: calc(100vh - 64px);
-  padding: 24px;
+  padding: 32px 40px;
   overflow-y: auto;
   overflow-x: hidden;
   background: #FFFFFF;
-  box-shadow: 0 2px 12px rgba(22, 33, 62, 0.05);
-  border-radius: 12px;
-  margin: 80px 24px 24px 304px;
 }
 
 /* 设置内容区滚动条 */
@@ -1603,8 +1600,8 @@ a {
 
   /* 设置页移动端 */
   .settings-content {
-    margin: 72px 16px 16px 16px;
-    padding: 16px;
+    margin-left: 0;
+    padding: 20px 16px;
   }
   
   .slider-item {
