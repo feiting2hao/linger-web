@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linger · 主界面</title>
+    <link rel="stylesheet" href="style-v2.css" />
+  </head>
+  <body>
+    <main class="page shell">
+      <header class="topbar">
+        <div class="top-left">
+          <nav class="mini-nav" aria-label="功能导航">
+            <a href="whitebox.html" class="mini-btn" aria-label="白盒观察">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7Z"/></svg>
+            </a>
+            <a href="settings.html" class="mini-btn" aria-label="设置">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/></svg>
+            </a>
+          </nav>
+          <a class="brand" href="index.html" aria-label="回到入口">
+            <span class="mark" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none">
+                <path d="M60 12 96 33.5v45c0 6-3.2 11.5-8.4 14.5l-19.2 11.1a16.8 16.8 0 0 1-16.8 0L32.4 93A16.8 16.8 0 0 1 24 78.5v-45L60 12Z" fill="#142033" />
+                <circle cx="60" cy="58" r="8" fill="#fff" />
+                <path d="M45 84c0-9 6.4-15 15-15s15 6 15 15v4H45v-4Z" fill="#fff" />
+              </svg>
+            </span>
+            <span class="brand-title">
+              <strong>Linger</strong>
+              <span>沈鹿溪 · 今日在线</span>
+            </span>
+          </a>
+        </div>
+        <div class="top-right">
+          <button class="world-btn" id="worldBtn" aria-label="进入2.5D世界">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>
+            <span>世界</span>
+          </button>
+          <div class="online-status">
+            <span class="status-dot"></span>
+            <span>在线</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="chat-grid">
+        <aside class="glass profile-panel">
+          <section class="identity-mini">
+            <div class="avatar-mini" aria-hidden="true">鹿</div>
+            <div class="identity-info">
+              <h1>沈鹿溪</h1>
+              <p>长期陪伴型表达</p>
+            </div>
+            <span class="mood-dot"></span>
+          </section>
+
+          <div class="quick-stats">
+            <div class="stat-item">
+              <span class="stat-value">78%</span>
+              <span class="stat-label">情绪值</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">66%</span>
+              <span class="stat-label">记忆活跃</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">91%</span>
+              <span class="stat-label">边界清晰</span>
+            </div>
+          </div>
+
+          <div class="current-state">
+            <h3>今日状态</h3>
+            <p>刚整理完一段录音草稿，手边还有半杯冰水。她现在不算很热闹，但注意力愿意放到你这里。</p>
+          </div>
+
+          <div class="expression-mode">
+            <h3>表达模式</h3>
+            <div class="mode-tags">
+              <span class="mode-tag active">温和回应</span>
+              <span class="mode-tag">少量追问</span>
+              <span class="mode-tag">不急结论</span>
+            </div>
+          </div>
+
+          <div class="world-line-mini">
+            <i></i>
+            <span>盒中世界 · 低频同步</span>
+          </div>
+        </aside>
+
+        <section class="glass dialog-panel">
+          <div class="dialog">
+            <div class="dialog-inner">
+              <section class="hello">
+                <div class="hello-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3"></path><path d="M18.4 5.6 16.3 7.7"></path><path d="M21 12h-3"></path><path d="M5.6 5.6 7.7 7.7"></path><path d="M3 12h3"></path><path d="M8 15a4 4 0 0 0 8 0"></path></svg>
+                </div>
+                <h2>回来了。我在。</h2>
+                <p>你可以直接说今天发生了什么，也可以只留下一句没头没尾的话。这里先接住，再慢慢理。</p>
+              </section>
+
+              <div class="message user">
+                <small>你 · 14:30</small>
+                <div class="bubble">最近总感觉很疲惫，工作上的事情太多了。</div>
+              </div>
+
+              <div class="message assistant">
+                <small>沈鹿溪 · 温和回应</small>
+                <div class="bubble">能感受到你的疲惫。有时候事情多到一定程度，反而不知道从哪里开始梳理，就像一团乱麻。</div>
+              </div>
+
+              <div class="message user">
+                <small>你 · 14:32</small>
+                <div class="bubble">对，就是这种感觉。明明知道有很多事情要做，但就是提不起劲。</div>
+              </div>
+
+              <div class="message assistant">
+                <small>沈鹿溪 · 温和回应</small>
+                <div class="bubble">这种状态其实很正常。我们的大脑就像一个容器，装得太满时，反而会进入一种保护机制——放慢甚至暂停。</div>
+              </div>
+
+              <div class="message user">
+                <small>你 · 刚刚</small>
+                <div class="bubble">今天有点累，但又说不上来哪里累。</div>
+              </div>
+
+              <div class="message assistant">
+                <small>沈鹿溪 · 温和回应</small>
+                <div class="bubble">别急，我先帮你捋一下。你现在像是那种没有具体坏事，但电量被慢慢抽空的累。先不用急着给它定性，能说出来已经算是把门开了一条缝。</div>
+              </div>
+            </div>
+          </div>
+
+          <form class="composer" aria-label="输入区">
+            <button class="icon-button" type="button" aria-label="添加上下文">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+            </button>
+            <input aria-label="聊天输入" placeholder="说点什么..." />
+            <button class="button" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m5 12 14-7-4 14-3-5-7-2Z"></path><path d="m12 14 7-9"></path></svg>
+              发送
+            </button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <div class="world25d-overlay" id="world25dOverlay">
+      <div class="world25d-container">
+        <iframe src="world25d.html" id="world25dFrame" allow="fullscreen"></iframe>
+        <button class="world25d-close" id="world25dClose" aria-label="返回对话">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          <span>返回</span>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const worldBtn = document.getElementById('worldBtn');
+      const world25dOverlay = document.getElementById('world25dOverlay');
+      const world25dClose = document.getElementById('world25dClose');
+      const world25dFrame = document.getElementById('world25dFrame');
+
+      worldBtn.addEventListener('click', () => {
+        world25dOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      world25dClose.addEventListener('click', () => {
+        world25dOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && world25dOverlay.classList.contains('active')) {
+          world25dOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    </script>
+  </body>
+</html>

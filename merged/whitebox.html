@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linger · 白盒</title>
+    <link rel="stylesheet" href="style-v2.css" />
+  </head>
+  <body class="dark-page">
+    <main class="page shell">
+      <header class="topbar">
+        <div class="top-left">
+          <nav class="mini-nav" aria-label="功能导航">
+            <a href="whitebox.html" class="mini-btn active" aria-label="白盒观察">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7Z"/></svg>
+            </a>
+            <a href="settings.html" class="mini-btn" aria-label="设置">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/></svg>
+            </a>
+          </nav>
+          <a class="brand" href="index.html" aria-label="回到入口">
+            <span class="mark" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none">
+                <path d="M60 12 96 33.5v45c0 6-3.2 11.5-8.4 14.5l-19.2 11.1a16.8 16.8 0 0 1-16.8 0L32.4 93A16.8 16.8 0 0 1 24 78.5v-45L60 12Z" fill="#142033" />
+                <circle cx="60" cy="58" r="8" fill="#fff" />
+                <path d="M45 84c0-9 6.4-15 15-15s15 6 15 15v4H45v-4Z" fill="#fff" />
+              </svg>
+            </span>
+            <span class="brand-title">
+              <strong>Linger</strong>
+              <span>沈鹿溪 · 白盒观察</span>
+            </span>
+          </a>
+        </div>
+        <div class="page-title">
+          <h1>白盒观察</h1>
+          <p>系统决策过程可视化</p>
+        </div>
+      </header>
+
+      <section class="whitebox-grid">
+        <aside class="glass whitebox-panel">
+          <header class="panel-head">
+            <h1>心理分析</h1>
+            <p>这一栏只展示人能读懂的判断，不放底层程序名。</p>
+          </header>
+          <div class="panel-scroll dark-content">
+            <section class="analysis-card">
+              <b>用户输入摘要</b>
+              <p>用户表达了疲惫，但暂时没有明确原因。当前更需要被承接，而不是立刻被安排任务。</p>
+            </section>
+            <section class="analysis-card">
+              <b>情绪倾向</b>
+              <div class="emotion-list">
+                <div class="emotion-row"><span>疲惫</span><div class="track"><i style="width: 82%"></i></div><span>82%</span></div>
+                <div class="emotion-row"><span>迷茫</span><div class="track"><i style="width: 58%"></i></div><span>58%</span></div>
+                <div class="emotion-row"><span>压力</span><div class="track"><i style="width: 46%"></i></div><span>46%</span></div>
+                <div class="emotion-row"><span>求助</span><div class="track"><i style="width: 34%"></i></div><span>34%</span></div>
+              </div>
+            </section>
+            <section class="analysis-card">
+              <b>建议表达</b>
+              <div class="tag-row">
+                <span class="status">先承接</span>
+                <span class="status">少追问</span>
+                <span class="status warn">不急着给方案</span>
+              </div>
+            </section>
+          </div>
+        </aside>
+
+        <section class="glass whitebox-panel">
+          <header class="panel-head">
+            <h2>整体线路</h2>
+            <p>用白盒方式展示一句回复从进入到发出的主要路径。</p>
+          </header>
+          <div class="panel-scroll dark-content">
+            <div class="chain">
+              <article class="chain-step"><i>01</i><div><b>接收用户输入</b><span>记录本轮消息，并给它一个可追踪的序号。</span></div><span class="status">完成</span></article>
+              <article class="chain-step"><i>02</i><div><b>组装上下文</b><span>合并近期对话、记忆片段、人物状态和世界片段。</span></div><span class="status">完成</span></article>
+              <article class="chain-step"><i>03</i><div><b>判断本轮意图</b><span>区分是闲聊、情绪承接、任务推进，还是需要暂停。</span></div><span class="status">完成</span></article>
+              <article class="chain-step"><i>04</i><div><b>合并决策</b><span>把目标、语气、边界、追问意愿合成一份回复计划。</span></div><span class="status">完成</span></article>
+              <article class="chain-step"><i>05</i><div><b>生成回复</b><span>让沈鹿溪只负责怎么说，不越过系统边界。</span></div><span class="status">完成</span></article>
+              <article class="chain-step"><i>06</i><div><b>统一写回</b><span>只在回复真正发出后，才记录必要的状态变化。</span></div><span class="status warn">等待</span></article>
+            </div>
+          </div>
+        </section>
+
+        <aside class="glass whitebox-panel">
+          <header class="panel-head">
+            <h2>白盒结果</h2>
+            <p>这里展示系统对本轮回复的可解释摘要。</p>
+          </header>
+          <div class="panel-scroll dark-content">
+            <section class="result-list">
+              <article class="result-card">
+                <b>主要目标</b>
+                <span>承接疲惫感，降低用户必须立刻解释清楚自己的压力。</span>
+              </article>
+              <article class="result-card">
+                <b>回复策略</b>
+                <span>温和回应，最多四句，不追加复杂问题。</span>
+              </article>
+              <article class="result-card">
+                <b>记忆召回</b>
+                <span>近期有项目收尾压力的线索，但本轮不主动展开旧事。</span>
+              </article>
+              <article class="result-card">
+                <b>边界检查</b>
+                <span>不推进依赖关系，不假装真实生活行动，不直接写入记忆。</span>
+              </article>
+              <article class="result-card">
+                <b>主动消息</b>
+                <span>当前不触发。可以保留一个轻量后续提醒，但不打扰用户。</span>
+              </article>
+            </section>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>

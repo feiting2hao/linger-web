@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Linger · 设置</title>
+    <link rel="stylesheet" href="style-v1.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Spectral:wght@600&display=swap" rel="stylesheet">
+  </head>
+  <body class="settings-page">
+    <!-- 顶部导航栏 -->
+    <header class="settings-header">
+      <div class="header-left">
+        <a href="index.html" class="back-btn" aria-label="返回首页">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5"></path>
+            <path d="m12 19-7-7 7-7"></path>
+          </svg>
+        </a>
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none">
+            <path d="M60 12 96 33.5v45c0 6-3.2 11.5-8.4 14.5l-19.2 11.1a16.8 16.8 0 0 1-16.8 0L32.4 93A16.8 16.8 0 0 1 24 78.5v-45L60 12Z" fill="#16213E" />
+            <path d="M42 39 60 28.5 78 39 60 49.5 42 39Z" stroke="#fff" stroke-width="5" stroke-linejoin="round" />
+            <circle cx="60" cy="58" r="8" fill="#fff" />
+            <path d="M45 84c0-9 6.4-15 15-15s15 6 15 15v4H45v-4Z" fill="#fff" />
+          </svg>
+        </div>
+        <div class="brand-info">
+          <span class="brand-name">Linger</span>
+          <span class="brand-status">沈鹿溪 · 设置管理</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="settings-main">
+      <!-- 左侧设置导航 -->
+      <aside class="settings-nav" id="settingsNav">
+        <nav class="nav-list" aria-label="设置分类">
+          <a href="#personality" class="nav-item active" data-target="personality">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M20 21a8 8 0 1 0-16 0"></path>
+            </svg>
+            <span class="nav-text">人格表达</span>
+          </a>
+          <a href="#memory" class="nav-item" data-target="memory">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <span class="nav-text">记忆系统</span>
+          </a>
+          <a href="#active" class="nav-item" data-target="active">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="nav-text">主动触发</span>
+          </a>
+          <a href="#world" class="nav-item" data-target="world">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span class="nav-text">世界时间</span>
+          </a>
+          <a href="#whitebox" class="nav-item" data-target="whitebox">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            <span class="nav-text">白盒追踪</span>
+          </a>
+          <a href="#boundary" class="nav-item locked" data-target="boundary">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span class="nav-text">安全边界</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- 右侧设置内容区 -->
+      <section class="settings-content" id="settingsContent">
+        <!-- 人格表达强度 -->
+        <section class="setting-section" id="personality">
+          <h2 class="section-title">人格表达强度</h2>
+          <div class="setting-list">
+            <div class="slider-item">
+              <span class="slider-label">工程回答</span>
+              <div class="slider-bar">
+                <div class="slider-track">
+                  <div class="slider-fill" style="width: 25%"></div>
+                </div>
+              </div>
+              <span class="slider-value">0.25</span>
+            </div>
+            <div class="slider-item">
+              <span class="slider-label">日常闲聊</span>
+              <div class="slider-bar">
+                <div class="slider-track">
+                  <div class="slider-fill" style="width: 55%"></div>
+                </div>
+              </div>
+              <span class="slider-value">0.55</span>
+            </div>
+            <div class="slider-item">
+              <span class="slider-label">情绪支持</span>
+              <div class="slider-bar">
+                <div class="slider-track">
+                  <div class="slider-fill" style="width: 70%"></div>
+                </div>
+              </div>
+              <span class="slider-value">0.70</span>
+            </div>
+            <div class="slider-item">
+              <span class="slider-label">主动问候</span>
+              <div class="slider-bar">
+                <div class="slider-track">
+                  <div class="slider-fill" style="width: 45%"></div>
+                </div>
+              </div>
+              <span class="slider-value">0.45</span>
+            </div>
+            <div class="slider-item">
+              <span class="slider-label">严肃场景</span>
+              <div class="slider-bar">
+                <div class="slider-track">
+                  <div class="slider-fill" style="width: 10%"></div>
+                </div>
+              </div>
+              <span class="slider-value">0.10</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 记忆系统 -->
+        <section class="setting-section" id="memory">
+          <h2 class="section-title">记忆系统</h2>
+          <div class="setting-list">
+            <div class="switch-item">
+              <div class="switch-info">
+                <span class="switch-title">短期记忆</span>
+                <span class="switch-desc">保留最近对话的语境，用于当下回应。</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="switch-track"></span>
+              </label>
+            </div>
+            <div class="switch-item">
+              <div class="switch-info">
+                <span class="switch-title">事件记忆</span>
+                <span class="switch-desc">只记录有意义的片段，不把所有闲聊都沉淀。</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="switch-track"></span>
+              </label>
+            </div>
+            <div class="switch-item">
+              <div class="switch-info">
+                <span class="switch-title">长期画像</span>
+                <span class="switch-desc">慢慢形成稳定画像，避免频繁改写。</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="switch-track"></span>
+              </label>
+            </div>
+            <div class="switch-item">
+              <div class="switch-info">
+                <span class="switch-title">定期摘要</span>
+                <span class="switch-desc">把散落的片段整理成可追溯的摘要。</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="switch-track"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 主动触发 -->
+        <section class="setting-section" id="active">
+          <h2 class="section-title">主动触发</h2>
+          <div class="setting-list">
+            <div class="switch-item">
+              <div class="switch-info">
+                <span class="switch-title">允许主动消息</span>
+                <span class="switch-desc">只有通过守卫判断时，才允许发出。</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="switch-track"></span>
+              </label>
+            </div>
+            <div class="slider-item">
+              <span class="slider-label">最短间隔</span>
+              <div class="slider-bar">
+                <div class="slider-track">
+                  <div class="slider-fill" style="width: 62%"></div>
+                </div>
+              </div>
+              <span class="slider-value">6h</span>
+            </div>
+            <div class="slider-item">
+              <span class="slider-label">最大句数</span>
+              <div class="slider-bar">
+                <div class="slider-track">
+                  <div class="slider-fill" style="width: 42%"></div>
+                </div>
+              </div>
+              <span class="slider-value">3</span>
+            </div>
+            <div class="switch-item">
+              <div class="switch-info">
+                <span class="switch-title">轻量回访</span>
+                <span class="switch-desc">不制造压力，只在需要时留一个很轻的入口。</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="switch-track"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 世界时间 -->
+        <section class="setting-section" id="world">
+          <h2 class="section-title">世界时间</h2>
+          <div class="setting-list">
+            <div class="slider-item">
+              <span class="slider-label">时间流速</span>
+              <div class="slider-bar">
+                <div class="slider-track">
+                  <div class="slider-fill" style="width: 50%"></div>
+                </div>
+              </div>
+              <span class="slider-value">1x</span>
+            </div>
+            <div class="slider-item">
+              <span class="slider-label">事件频率</span>
+              <div class="slider-bar">
+                <div class="slider-track">
+                  <div class="slider-fill" style="width: 36%"></div>
+                </div>
+              </div>
+              <span class="slider-value">低</span>
+            </div>
+            <div class="switch-item">
+              <div class="switch-info">
+                <span class="switch-title">生活片段</span>
+                <span class="switch-desc">用于前台状态展示，不作为真实生活声明。</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="switch-track"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 白盒追踪 -->
+        <section class="setting-section" id="whitebox">
+          <h2 class="section-title">白盒追踪</h2>
+          <div class="setting-list">
+            <div class="switch-item">
+              <div class="switch-info">
+                <span class="switch-title">记录决策摘要</span>
+                <span class="switch-desc">用于解释为什么这样回复。</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="switch-track"></span>
+              </label>
+            </div>
+            <div class="switch-item">
+              <div class="switch-info">
+                <span class="switch-title">记录行动步骤</span>
+                <span class="switch-desc">用于复盘本轮经过了哪些节点。</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="switch-track"></span>
+              </label>
+            </div>
+            <div class="switch-item">
+              <div class="switch-info">
+                <span class="switch-title">坏案例归档</span>
+                <span class="switch-desc">出现不稳定输出时，保留复盘线索。</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="switch-track"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 安全边界 -->
+        <section class="setting-section" id="boundary">
+          <h2 class="section-title">安全边界</h2>
+          <div class="tag-list">
+            <span class="tag good">不声称真实人类</span>
+            <span class="tag good">不推进恋爱关系</span>
+            <span class="tag good">不直接写记忆</span>
+            <span class="tag good">不直接调用工具</span>
+            <span class="tag good">不绕过上层裁决</span>
+          </div>
+        </section>
+
+        <!-- 底部说明 -->
+        <div class="settings-footer">
+          <p>当前页面只做展示。这里的滑杆、开关和分类用于表达最终管理界面的形态，不会真的保存或改变系统。</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (function() {
+        'use strict';
+
+        var navItems = document.querySelectorAll('.nav-item');
+        var sections = document.querySelectorAll('.setting-section');
+        var settingsContent = document.getElementById('settingsContent');
+
+        // 导航点击切换
+        navItems.forEach(function(item) {
+          item.addEventListener('click', function(e) {
+            if (this.classList.contains('locked')) {
+              e.preventDefault();
+              return;
+            }
+
+            // 移除所有active
+            navItems.forEach(function(nav) {
+              nav.classList.remove('active');
+            });
+
+            // 添加当前active
+            this.classList.add('active');
+
+            // 滚动到对应模块
+            var target = this.getAttribute('data-target');
+            var section = document.getElementById(target);
+            if (section) {
+              section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+
+        // 滚动时更新导航选中态
+        settingsContent.addEventListener('scroll', function() {
+          var scrollTop = settingsContent.scrollTop;
+
+          sections.forEach(function(section) {
+            var rect = section.getBoundingClientRect();
+            var contentRect = settingsContent.getBoundingClientRect();
+            var relativeTop = rect.top - contentRect.top;
+
+            if (relativeTop <= 100 && relativeTop >= -section.offsetHeight + 100) {
+              var id = section.id;
+              navItems.forEach(function(nav) {
+                nav.classList.remove('active');
+                if (nav.getAttribute('data-target') === id) {
+                  nav.classList.add('active');
+                }
+              });
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
